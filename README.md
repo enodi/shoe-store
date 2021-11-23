@@ -1,5 +1,18 @@
 # Shoe Store
 
+## Application setup
+
+- Clone the application `git clone https://github.com/enodi/shoe-store.git`
+
+* Open a new tab on your terminal
+* Navigate to the application root directory e.g `$ shoe-store`
+  - run `yarn install` to install project dependencies
+  - run `yarn start:websocket` to start websocket
+  - run `yarn start:server` to start graphql backend
+  - run `yarn start` to start the react application
+* Navigate to the app on your [browser](http://localhost:3000)
+* Enjoy!
+
 ## Synopsis
 
 Aldo Shoes is having a huge flash sale online. You provide support to the inventory department. They want to react real-time to various inventory problems as they arise.
