@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useMemo, useEffect} from "react";
 import {
   Table,
   Thead,
@@ -25,7 +25,9 @@ const TableComponent: React.FC<Props> = ({data, tableHeader, label, showPaginati
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 10;
-  const result = data && data.length > 0 ? data : [];
+  const result = useMemo(() => {
+    return data && data.length > 0 ? data : [];
+  }, [data]);
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
@@ -40,7 +42,7 @@ const TableComponent: React.FC<Props> = ({data, tableHeader, label, showPaginati
 
   return (
     <Box mb={20}>
-      {label && <Heading sx={{color:"#272A30", fontSize: "24px", fontWeight: 500}}>{label}</Heading>}
+      {label && <Heading sx={{color:"#272A30", fontSize: "24px", fontWeight: 500, mb: "10px"}}>{label}</Heading>}
       <Table variant="simple">
         <Thead sx={{ bg: "gray.400", color: "#FFF" }}>
           <Tr>

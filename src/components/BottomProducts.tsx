@@ -12,7 +12,7 @@ const BottomProducts: React.FC<Props> = ({data}) => {
   return (
     <Box sx={isMobile ? {maxW: "100%"} : {maxW: "550px"}}>
       <Table
-        label="Least 5 Products"
+        label="5 Least Trending Store"
         data={data}
         tableHeader={['Store', 'Shoe model', 'Quantity left']}
       />

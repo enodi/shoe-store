@@ -24,25 +24,43 @@ const schema = buildSchema(`
   }
   type Query {
     store: [AldoStore]
-    leastStore: [AldoStore]
-    topStore: [AldoStore]
+    lowInventoryStores: [AldoStore]
+    highInventoryStores: [AldoStore]
+    latestSaleCompleted: [AldoStore]
   }
 `);
 
 const root = {
   store: () => {
-    return result.aldoStore;
-  },
-  leastStore: () => {
-    let topProducts = [];
-    for (let i = 0; i < result.aldoStore.length; i++) {
-      if (topProducts.length < 5) {
-        topProducts.push(result.aldoStore[i]);
+    const storeValue = result.aldoStore.slice(-50);
+    const uniqueResult = storeValue.reduce((accumulator, current) => {
+      if (itemExists(current)) {
+        return accumulator;
       } else {
-        for (let j = 0; j < topProducts.length; j++) {
-          if (topProducts[j].inventory < result.aldoStore[i].inventory) {
-            topProducts.splice(j, 1);
-            topProducts.push(result.aldoStore[i]);
+        return [...accumulator, current];
+      }
+
+      function itemExists(currentVal) {
+        return accumulator.some((item) => {
+          return (
+            item.model === currentVal.model && item.store === currentVal.store
+          );
+        });
+      }
+    }, []);
+
+    return uniqueResult;
+  },
+  lowInventoryStores: () => {
+    let leastSoldItems = [];
+    for (let i = 0; i < result.aldoStore.length; i++) {
+      if (leastSoldItems.length < 5) {
+        leastSoldItems.push(result.aldoStore[i]);
+      } else {
+        for (let j = 0; j < leastSoldItems.length; j++) {
+          if (leastSoldItems[j].inventory < result.aldoStore[i].inventory) {
+            leastSoldItems.splice(j, 1);
+            leastSoldItems.push(result.aldoStore[i]);
             i++;
           } else {
             continue;
@@ -50,18 +68,18 @@ const root = {
         }
       }
     }
-    return topProducts;
+    return leastSoldItems;
   },
-  topStore: () => {
-    let leastProducts = [];
+  highInventoryStores: () => {
+    let topSoldItems = [];
     for (let i = 0; i < result.aldoStore.length; i++) {
-      if (leastProducts.length < 5) {
-        leastProducts.push(result.aldoStore[i]);
+      if (topSoldItems.length < 5) {
+        topSoldItems.push(result.aldoStore[i]);
       } else {
-        for (let j = 0; j < leastProducts.length; j++) {
-          if (leastProducts[j].inventory > result.aldoStore[i].inventory) {
-            leastProducts.splice(j, 1);
-            leastProducts.push(result.aldoStore[i]);
+        for (let j = 0; j < topSoldItems.length; j++) {
+          if (topSoldItems[j].inventory > result.aldoStore[i].inventory) {
+            topSoldItems.splice(j, 1);
+            topSoldItems.push(result.aldoStore[i]);
             i++;
           } else {
             continue;
@@ -69,7 +87,10 @@ const root = {
         }
       }
     }
-    return leastProducts;
+    return topSoldItems;
+  },
+  latestSaleCompleted: () => {
+    return result.aldoStore.slice(-1);
   },
 };
 
