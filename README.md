@@ -6,7 +6,7 @@
 
 * Open a new tab on your terminal
 * Navigate to the application root directory e.g `$ shoe-store`
-  - run `yarn install` to install project dependencies
+  - run `yarn install` to install project dependencies. Please ensure you have node version: >=14.16.0 running on your machine
   - run `yarn start:websocket` to start websocket
   - run `yarn start:server` to start graphql backend
   - run `yarn start` to start the react application
@@ -14,6 +14,7 @@
 * Enjoy!
 
 ## Screenshot of App
+
 <img width="1440" alt="Screenshot 2021-11-28 at 7 30 04 PM" src="https://user-images.githubusercontent.com/29783644/143781206-8f81c64c-2903-402e-8fde-4f192398a9ea.png">
 
 ## Synopsis
