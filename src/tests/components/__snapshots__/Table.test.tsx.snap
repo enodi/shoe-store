@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table Component should render Table component correctly 1`] = `
+<Box
+  mb={20}
+>
+  <Heading
+    sx={
+      Object {
+        "color": "#272A30",
+        "fontSize": "24px",
+        "fontWeight": 500,
+        "mb": "10px",
+      }
+    }
+  >
+    Latest Sales Completed
+  </Heading>
+  <Table
+    variant="simple"
+  >
+    <ForwardRef
+      sx={
+        Object {
+          "bg": "gray.400",
+          "color": "#FFF",
+        }
+      }
+    >
+      <ForwardRef>
+        <ForwardRef
+          key="0"
+          sx={
+            Object {
+              "color": "#FFF",
+              "fontSize": 16,
+            }
+          }
+        >
+          Store
+        </ForwardRef>
+        <ForwardRef
+          key="1"
+          sx={
+            Object {
+              "color": "#FFF",
+              "fontSize": 16,
+            }
+          }
+        >
+          Shoe model
+        </ForwardRef>
+        <ForwardRef
+          key="2"
+          sx={
+            Object {
+              "color": "#FFF",
+              "fontSize": 16,
+            }
+          }
+        >
+          Quantity left
+        </ForwardRef>
+      </ForwardRef>
+    </ForwardRef>
+    <ForwardRef>
+      <ForwardRef>
+        <ForwardRef
+          colSpan={3}
+          textAlign="center"
+        >
+          No data available
+        </ForwardRef>
+      </ForwardRef>
+    </ForwardRef>
+  </Table>
+</Box>
+`;

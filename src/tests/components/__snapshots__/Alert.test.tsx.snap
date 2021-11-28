@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert Component should render Alert Error component correctly 1`] = `
+<ForwardRef
+  status="error"
+  sx={
+    Object {
+      "mb": 10,
+    }
+  }
+>
+  <AlertIcon />
+  <ForwardRef
+    mr={2}
+  >
+    Network Error!
+  </ForwardRef>
+  <ForwardRef>
+    A network error occurred. Please try reconnecting again
+  </ForwardRef>
+  <CloseButton
+    onClick={[MockFunction]}
+    position="absolute"
+    right="8px"
+    top="8px"
+  />
+</ForwardRef>
+`;
