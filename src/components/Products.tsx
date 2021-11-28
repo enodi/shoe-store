@@ -8,7 +8,7 @@ interface Props {
 
 const Products: React.FC<Props> = ({data}) => (
   <Table
-    label="Latest 50 Sales Completed"
+    label="Latest Sales Completed"
     data={data}
     tableHeader={['Store', 'Shoe model', 'Quantity left']}
     showPagination={true}

@@ -1,51 +1,33 @@
-export const getLatestSales = () => {
+const fetchQuery = (query: string) => {
   return fetch("http://localhost:4000/graphql", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
-    body: JSON.stringify({ query: "{ store {model store inventory} }" }),
+    body: JSON.stringify({ query }),
   })
+}
+export const getLatestSales = () => {
+  return fetchQuery("{ store {model store inventory} }")
     .then((res) => res.json())
     .then((data) => data?.data?.store)
 }
 
 export const getTopProducts = () => {
-  return fetch("http://localhost:4000/graphql", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({ query: "{ highInventoryStores {model store inventory} }" }),
-  })
+  return fetchQuery("{ highInventoryStores {model store inventory} }")
     .then((res) => res.json())
     .then((data) => data?.data?.highInventoryStores)
 }
 
 export const getLeastProducts = () => {
-  return fetch("http://localhost:4000/graphql", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({ query: "{ lowInventoryStores {model store inventory} }" }),
-  })
+  return fetchQuery("{ lowInventoryStores {model store inventory} }")
     .then((res) => res.json())
     .then((data) => data?.data?.lowInventoryStores)
 }
 
 export const latestSaleCompleted = () => {
-  return fetch("http://localhost:4000/graphql", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({ query: "{ latestSaleCompleted {model store inventory} }" }),
-  })
+  return fetchQuery("{ latestSaleCompleted {model store inventory} }")
     .then((res) => res.json())
     .then((data) => data?.data?.latestSaleCompleted)
 }
