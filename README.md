@@ -13,6 +13,9 @@
 * Navigate to the app on your [browser](http://localhost:3000)
 * Enjoy!
 
+## Screenshot of App
+<img width="1440" alt="Screenshot 2021-11-28 at 7 30 04 PM" src="https://user-images.githubusercontent.com/29783644/143781206-8f81c64c-2903-402e-8fde-4f192398a9ea.png">
+
 ## Synopsis
 
 Aldo Shoes is having a huge flash sale online. You provide support to the inventory department. They want to react real-time to various inventory problems as they arise.
